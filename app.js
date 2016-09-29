@@ -1,358 +1,345 @@
-// Ionic Starter App
+(function () {
+    'use strict';
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
+angular.module('vitebizFMS', ['ionic','ionic-toast','ngCordova','tabSlideBox'])
 
-angular.module('starter', ['ionic', 'starter.controllers','ionic-toast','ionic-datepicker'])
+.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+	  
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
 
-.run(function ($ionicPlatform) {
-    $ionicPlatform.ready(function () {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
-		
-    });
-})
-.directive('footertabs', function() { 
-	var directive = {};
-   
-   //restrict = E, signifies that directive is Element directive
-   directive.restrict = 'E';
-   
-   //template replaces the complete element with its text.
-  // directive.template = '<div class="tabs tabs-icon-top main-div">		<a class="tab-item div-a" href="#/app/home">			<img class="div-a-img" src="img/home-footer.png" /><p class="footer-icon-title">Home</p>		</a>		<a class="tab-item div-a" href="#/app/order">			<img class="div-a-img" src="img/detail-footer.png" /><p class="footer-icon-title">Orders</p>	 		</a>		<a class="tab-item div-a" href="#/app/cart">				<img class="div-a-img" src="img/cart-2.png" /><p class="footer-icon-title">Cart</p>												<span class="badge badge-assertive ng-binding" style="right: calc(50% - 26px);background-color:#FCC000;text-align: center;padding: 2px;position: fixed;">{{cartcount}}</span>		</a>		<a class="tab-item div-a" href="#/app/CustomerProfile">				<img class="div-a-img" src="img/user.png" /><p class="footer-icon-title">Profile</p>  		</a>  <a class="tab-item div-a" href="#/app/PromocodeDisplay">				<img class="div-a-img" src="img/percentage.png" /><p class="footer-icon-title">Offers</p>  		</a>	</div>';
-   
-   
-    directive.template = '<div class="tabs tabs-icon-top main-div">		<a class="tab-item div-a" href="#/app/mainpage">			<img class="div-a-img" src="img/home-footer.png" /><p class="footer-icon-title">Home</p>		</a>	<a class="tab-item div-a" href="#/app/CustomerProfile">				<img class="div-a-img" src="img/user.png" /><p class="footer-icon-title">Profile</p>  		</a>	 <a class="tab-item div-a" href="#/app/PromocodeDisplay">				<img class="div-a-img" src="img/percentage.png" /><p class="footer-icon-title">Offers</p>  		</a>    <a class="tab-item div-a" href="#/app/cart">				<img class="div-a-img" src="img/cart-2.png" /><p class="footer-icon-title">Cart</p>												<span class="badge badge-assertive ng-binding" style="right: calc(50% - 26px);background-color:#FCC000;text-align: center;padding: 2px;position: fixed;">{{cartcount}}</span>		</a>	    <a class="tab-item div-a" href="#/app/order">			<img class="div-a-img" src="img/detail-footer.png" /><p class="footer-icon-title">Orders</p>	 		</a>			 	</div>';
-   
-   return directive;
-})
-
-
-.service('count', function(){
-
-    this.count = function() { 
-        var cart=[];    
-        if(window.localStorage['cart']!='') {
-            cart=angular.fromJson(window.localStorage['cart']);
-        } 
-        if (window.localStorage['cart']=='') {
-            window.localStorage['cart'] = cart;
-        }
-        return cart.length;
     }
-	
-    
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+  });
 })
 
-.config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
+.config(function($stateProvider, $urlRouterProvider) {
+  
+  $stateProvider
 
-    .state('app', {
+  // setup an abstract state for the tabs directive
+  /*   .state('app', {
+    url: '/app',
+    abstract: true,
+    templateUrl: 'templates/tabs.html'
+  }) */
+	.state('app', {
         url: "/app",
         abstract: true,
         templateUrl: "templates/menu.html",
         controller: 'AppCtrl'
     })
 
-   .state('login', {
+  // Each tab has its own nav history stack:
+	.state('login', {
         url: "/login",
-        
-        templateUrl: "templates/login.html",
-        controller: 'login'
+                templateUrl: "templates/login.html",
+                controller: 'AppCtrl'
     })
-	
-	.state('app.home', {
-        url: "/home",
+	.state('app.UserSignup', {
+		url: "/UserSignup",
+			views: {
+			'menuContent': {
+				templateUrl: "templates/UserSignup.html",
+				controller: 'UserSignup'
+			}
+		}
+	})
+	 .state('app.UserLogo', {
+             url: "/UserLogo",
+             views: {
+                 'menuContent': {
+                 templateUrl: "templates/UserLogo.html",
+                 controller: 'UserLogo'
+                 }
+             }
+         })
+	 .state('app.currencyCtrl', {
+		url: "/currencyCtrl",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/currency.html",
+				controller: 'currencyCtrl'
+			}
+		}
+	})
+	.state('app.search', {
+        url: "/search",
         views: {
             'menuContent': {
-                templateUrl: "templates/home.html",
+                templateUrl: "templates/search.html",
                 controller: 'Home'
             }
         }
     })
-	.state('app.useraddress', {
-        url: "/useraddress",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/useraddress.html",
-                controller: 'useraddress'
-            }
-        }
-    })
-    
-	.state('app.productlist', {
-        url: "/productlist",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/productlist.html",
-                controller: 'productlist'
-            }
-        }
-    })
-    
-	.state('app.cart', {
-        url: "/cart",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/cart.html",
-                controller: 'cart'
-            }
-        }
-    })
-	
-	
-	.state('login_page', {
-        url: "/login_page",
-				
-                templateUrl: "templates/login.html",
-                controller: 'login_page'
-            
-    })
-	.state('app.register', {
-        url: "/register",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/register.html",
-                controller: 'register'
-            }
-        }
-    })
-	.state('app.shipping', {
-        url: "/shipping",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/shipping.html",
-                controller: 'shipping'
-            }
-        }
-    })
-	
-	
-	
-	
-	
-	.state('app.productdetail', {
-        url: "/productdetail",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/productdetail.html",
-                controller: 'productdetail'
-            }
-        }
-    })
-        .state('app.subcatagory', {
-            url: "/subcatagory",
+	.state('app.playlist', {
+            url: "/playlist",
             views: {
                 'menuContent': {
-                    templateUrl: "templates/subcatagory.html",
-                    controller: 'subcatagory'
-                }
-            }
-        })
-		
-		 .state('app.invoice', {
-            url: "/invoice",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/invoice.html",
-                    controller: 'invoice'
-                }
-            }
-        })
-		
-		 .state('app.order', {
-            url: "/order",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/order.html",
-                    controller: 'order'
-                }
-            }
-        })
-		
-		
-		
-			
-		.state('app.CustomerProfile', {
-        url: "/CustomerProfile",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/CustomerProfile.html",
-                controller: 'CustomerProfile'
-            }
-        }
-    })
-	
-	.state('app.updateprofile', {
-        url: "/updateprofile",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/updateprofile.html",
-                controller: 'updateprofile'
-            }
-        }
-    })
-	.state('app.changePassword', {
-        url: "/changePassword",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/changePassword.html",
-                controller: 'changePassword'
-            }
-        }
-    })
-	
-			.state('app.ForgotPassword', {
-            url: "/ForgotPassword",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/ForgotPassword.html",
-                    controller: 'ForgotPassword'
-                }
-            }
-        })
-		
-	
-		.state('app.PromocodeDisplay', {
-        url: "/PromocodeDisplay",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/PromocodeDisplay.html",
-                controller: 'PromocodeDisplay'
-            }
-        }
-    })
-	
-		.state('app.AddAppoinment', {
-        url: "/AddAppoinment",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/AddAppoinment.html",
-                controller: 'AddAppoinment'
-            }
-        }
-    })
-		
-		
-		.state('app.logout', {
-            url: "/logout",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/logout.html",
+                    templateUrl: "templates/playlist.html",
                     controller: 'logout'
                 }
             }
-        })
-		
-		
-		.state('app.mainpage', {
-        url: "/mainpage",
+    })
+	.state('app.playlists', {
+          url: "/playlists",
+          views: {
+              'menuContent': {
+                  templateUrl: "templates/playlists.html",
+                  controller: 'PlaylistsCtrl'
+              }
+          }
+    })
+	 .state('app.addnewcustomer', {
+        url: "/addnewcustomer",
         views: {
             'menuContent': {
-                templateUrl: "templates/mainpage.html",
-                controller: 'mainpage'
+                templateUrl: "templates/addnewcustomer.html",
+                controller: 'addnewcustomer'
             }
         }
     })
-	
-	.state('app.OffersDetails', {
-        url: "/OffersDetails",
+	 .state('app.browse', {
+        url: "/browse",
         views: {
             'menuContent': {
-                templateUrl: "templates/OffersDetails.html",
-                controller: 'OffersDetails'
+                templateUrl: "templates/browse.html",
+                controller: 'dtlcustomer'
             }
         }
     })
-	
-	
-	.state('app.ViewBookTable', {
-        url: "/ViewBookTable",
+	.state('app.EditCustomer', {
+        url: "/EditCustomer",
         views: {
             'menuContent': {
-                templateUrl: "templates/ViewBookTable.html",
-                controller: 'ViewBookTable'
+                templateUrl: "templates/EditCustomer.html",
+                controller: 'dtlEditCustomer'
             }
         }
     })
-	
-	//Get Employee 
-	.state('app.AddEmployee', {
-        url: "/AddEmployee",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/AddEmployee.html",
-                controller: 'AddEmployee'
-            }
-        }
-    })
-	
-	//Display Employee
-	.state('app.DisplayEmployee', {
-        url: "/DisplayEmployee",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/DisplayEmployee.html",
-                controller: 'DisplayEmployee'
-            }
-        }
-    })
-	
-	// Expense
-	.state('app.AddExpense', {
-        url: "/AddExpense",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/AddExpense.html",
-                controller: 'AddExpense'
-            }
-        }
-    })
-	
-	/*Display Expense 
-	.state('app.DisplayExpense', {
-       url: "/DisplayExpense",
-        views: {
-           'menuContent': {
-             templateUrl: "templates/DisplayExpense.html",
-               controller: 'DisplayExpense'
-            }
-        }
-    })*/
-	
-	//Display ExpenseList 
-	.state('app.ExpenseList', {
-        url: "/ExpenseList",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/ExpenseList.html",
-                controller: 'ExpenseList'
-            }
-        }
-    })
-	
-    .state('app.getlocation', {
-    url: "/getlocation",
-        views: {
-            'menuContent': {
-            templateUrl: "templates/getlocation.html",
-            controller: 'getlocation'
-            }
-        }
-    });
-	
+	.state('app.ShowCategory', {
+		    url: "/ShowCategory",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/ShowCategory.html",
+		            controller: 'ShowCategory'
+		        }
+		    }
+	})
 
+	.state('app.AddCategory', {
+		    url: "/AddCategory",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/AddCategory.html",
+		            controller: 'AddCategory'
+		        }
+		    }
+	})
+	.state('app.EditCategory', {
+		    url: "/EditCategory",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/EditCategory.html",
+		            controller: 'EditCategory'
+		        }
+		    }
+	})
+	.state('app.ShowProduct', {
+        url: "/ShowProduct",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/ShowProduct.html",
+                controller: 'ShowProduct'
+            }
+        }
+    })
+	.state('app.addProducts', {
+        url: "/addProducts",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/addProducts.html",
+                controller: 'addProducts'
+            }
+        }
+    })
+	.state('app.productquotationlist', {
+		url: "/productquotationlist",
+		views: {
+		    'menuContent': {
+		        templateUrl: "templates/productquotationlist.html",
+		        controller: 'productquotationlist'
+		    }
+		}
+	})
+	.state('app.productquotation', {
+            url: "/productquotation",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/productquotation.html",
+                    controller: 'productquotationCtrl'
+                }
+            }
+    })
+	.state('app.productInvoiceslist', {
+		    url: "/productInvoiceslist",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/productInvoiceslist.html",
+		            controller: 'productInvoiceslist'
+		        }
+		    }
+	})
+	.state('app.TakePaymentCustomerList', {
+	    url: "/TakePaymentCustomerList",
+	    views: {
+	        'menuContent': {
+	            templateUrl: "templates/TakePaymentCustomerList.html",
+	            controller: 'TakePaymentCustomerList'
+	        }
+	    }
+	})
+	.state('app.TakePaymentInvoicedetail', {
+	url: "/TakePaymentInvoicedetail",
+	    views: {
+	        'menuContent': {
+	        templateUrl: "templates/TakePaymentInvoicedetail.html",
+	        controller: 'TakePaymentInvoicedetail'
+	        }
+	    }
+	})
 	
+	.state('app.TakePayment', {
+	 url: "/TakePayment",
+	    views: {
+	        'menuContent': {
+	        templateUrl: "templates/TakePayment.html",
+	        controller: 'TakePayment'
+	        }
+	    }
+	})
+	.state('app.CreateCustomerReturn', {
+	    url: "/CreateCustomerReturn",
+	    views: {
+	        'menuContent': {
+	            templateUrl: "templates/CreateCustomerReturn.html",
+	            controller: 'CreateCustomerReturn'
+	        }
+	    }
+	})
+	.state('app.EditProduct', {
+        url: "/EditProduct",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/EditProduct.html",
+                controller: 'EditProduct'
+            }
+        }
+    })
 	
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/login');
+	.state('app.ProductDetails', {
+        url: "/ProductDetails",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/ProductDetails.html",
+                controller: 'ProductDetails'
+            }
+        }
+    })
+	.state('app.productpurchasequotationdetail', {
+		    url: "/productpurchasequotationdetail",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/productpurchasequotationdetail.html",
+		            controller: 'productpurchasequotationdetail'
+
+		        }
+		    }
+	})
+	.state('app.EditQutation', {
+		url: "/EditQutation",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/EditQutation.html",
+				controller: 'EditQutationDetails'
+			}
+		}
+	})
+	.state('app.productInvoice', {
+            url: "/productInvoice",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/productInvoice.html",
+                    controller: 'productInvoice'
+                }
+            }
+    })
+	.state('app.productpurchaseInvoicedetail', {
+		    url: "/productpurchaseInvoicedetail",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/productpurchaseInvoicedetail.html",
+		            controller: 'productpurchaseInvoicedetail'
+
+		        }
+		    }
+	})
+		.state('app.EditInvoice', {
+		    url: "/EditInvoice",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/EditInvoice.html",
+		            controller: 'EditInvoice'
+		        }
+		    }
+	})
+	.state('app.AddTax', {
+		    url: "/AddTax",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/AddTax.html",
+		            controller: 'AddTax'
+		        }
+		    }
+	})
+	
+	.state('app.ViewTax', {
+		    url: "/ViewTax",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/ViewTax.html",
+		            controller: 'ViewTax'
+		        }
+		    }
+	})
+	
+	.state('app.EditTax', {
+		    url: "/EditTax",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/EditTax.html",
+		            controller: 'EditTax'
+		        }
+		    }
+	})
+	.state('app.InvoiceDashboard', {
+		    url: "/InvoiceDashboard",
+		    views: {
+		        'menuContent': {
+		            templateUrl: "templates/InvoiceDashboard.html",
+		            controller: 'InvoiceDashboard'
+		        }
+		    }
+	})
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/login');
+
 });
+}());
