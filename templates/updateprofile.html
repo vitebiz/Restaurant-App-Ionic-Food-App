@@ -1,0 +1,134 @@
+
+<ion-view title="Edit Information">
+
+<ion-nav-back-button class="button-clear" style="color: #FFFFFF;">
+        <i class="icon ion-ios7-arrow-back"></i>
+    </ion-nav-back-button>
+  <!-- <ion-nav-buttons side="left">
+    
+  </ion-nav-buttons> -->
+  
+  <ion-nav-buttons side="right">   
+  </ion-nav-buttons>
+<style>
+
+	img {
+        margin-bottom: -9px;
+    }
+    .item .item-content.activated{
+        background-color: #5E87B0;
+	    color: #FFF;
+    }
+	
+</style> 
+<ion-content style="background-color:white;">
+
+  
+<!--
+	Edited By Hardik
+	UI Changes
+	Date: 2016-04-19
+-->
+<div style="width: 96%; margin: 7px auto 0px;" class="">
+	<div style="padding: 7px 0px 0px;height: 46px;" class="row border-text">
+	  <div style="" class="col col-33 label-font">
+	  
+		First Name
+	  
+	  </div>
+	  <div class="col">
+		<input class="input-font-height" ng-model="update.fname" type="text" placeholder="First Name"/>
+	  </div>
+	</div>
+	<!--<div style="padding: 7px 0px 0px;height: 46px;" class="row border-text">
+	  <div style="" class="col col-33 label-font">
+	  
+		Last Name
+	  
+	  </div>
+	  <div class="col">
+		<input ng-model="update.lname" class="input-font-height" type="text" placeholder="Last Name"/>
+	  </div>
+	</div>-->
+	
+	<!-- <div style="padding: 7px 0px 0px;height: 46px;" class="row border-text">
+	<div style="" class="col col-33 label-font">  
+		Gender 
+	</div class="item item-input signin-textfield">
+	<ion-radio  name="gender" value="Male" ng-model="update.cCustomerType">Male</ion-radio>
+	<ion-radio name="gender" value="Female" ng-model="update.cCustomerType">Female</ion-radio>  
+	
+	</div> -->
+	
+	<div style="padding: 7px 0px 0px;height: 46px;" class="row border-text">
+	  <div style="" class="col col-33 label-font">
+	  
+		Contact No
+	  
+	  </div>
+	  <div class="col">
+		<input ng-model="update.contact" class="input-font-height" type="text" placeholder="Contact No"/>
+	  </div>
+	</div>
+	<!-- <div style="padding: 7px 0px 0px;height: 46px;" class="row border-text">
+	  <div style="" class="col col-33 label-font">	  
+		Birth Date	  
+	  </div>
+	  <div class="col">
+		<input ng-model="update.birthdate" date date-format="short"   class="input-font-height" type="text" placeholder="mm/dd/yyyy" />
+		<!-- <ionic-datepicker input-obj="datepickerObject" style="min-height: 35px;" >
+		
+			<img src="img/selectdate.png" style="width:90px;" ng-hide="m" class="datepicker-button" ng-model="datefilter" ></img>
+			
+			<div style="font-size: 12px;margin-top: -30px;margin-left: 90px;" class="col col-100"  ng-model="datefilter">{{diagnosticDate1 | date:'MM/dd/yyyy' : 'UTC'}}
+			</div>
+		</ionic-datepicker> 
+	  </div>
+	</div> -->
+	
+	<div style="padding: 7px 0px 0px;height: 46px;" class="row border-text">
+	  <div style="" class="col col-33 label-font">
+
+		Email 
+	  
+	  </div>
+	  <div class="col">
+		<input ng-model="update.Email" class="input-font-height" type="text" placeholder="Your EmailID" />
+	  </div>
+	</div>
+	
+
+	
+
+</div>
+	
+<div style="height:50px;"></div>
+  <div class="row" style="margin-top: 1%;">
+  
+		<button class="button button-positive" style="width:50%;border-color: rgb(113, 73, 130);background-color: rgb(113, 73, 130);color: #fff;" class="button button-positive" value="{{x.nLoginId}}" ng-click="updateProfile()">SAVE</button>
+			&nbsp;&nbsp;	
+		<button class="button button-positive" style="width:50%;border-color: rgb(113, 73, 130);background-color: rgb(113, 73, 130);color: #fff;" class="button button-positive" value="{{x.nLoginId}}" ng-click="cancleUpdate()">CANCEL</button>
+			<!-- <div ng-click="cancelButton()" style="min-height: 45px;line-height: 37px;border-color: rgb(27, 174, 192);background-color: rgb(27, 174, 192);color: #fff; padding: 0px;font-size: 12px;font-weight:bold;" >
+				CANCEL
+			</div> -->
+			
+			<!-- <div ng-click="updateProfile()" style="min-height: 45px;line-height: 37px;border-color: rgb(27, 174, 192);background-color: rgb(27, 174, 192);color: #fff; padding: 0px;font-size: 12px;font-weight:bold;" >
+				SAVE
+			</div> -->
+	
+	</div>
+  
+  
+  
+  </ion-content>
+  
+	<!--
+		Edited By Hardik
+		UI Changes
+		Date: 2016-04-19
+	-->	
+	
+
+</ion-view>
+
+

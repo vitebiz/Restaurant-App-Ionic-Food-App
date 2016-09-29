@@ -1,0 +1,428 @@
+<form ng-repeat="x in CustomerData">
+<ion-view title="{{x.cCustomerFirstName}}&nbsp;{{x.cCustomerMiddleName}}&nbsp;{{x.cCustomerLastName}}">
+	<ion-nav-buttons side="left">
+    
+  </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+   <!-- <button class="button button-icon icon ion-negative" menu-toggle="right" ng-click="Edit()" >Edit</button>-->
+	<img src="img/edit1.png"  ng-click="Edit()" style="height: 22px;width: 22px;margin-top: 10px;margin-left: 5px;"/>
+  </ion-nav-buttons>
+  
+  
+<!--  <style>
+	table {
+		width: 98%;
+	}
+	table, th, td {
+		border: 2px solid #808080;
+		border-collapse: collapse;
+		padding: 5px;
+		margin: 1%;
+	}
+	.one {
+		padding-left: 2%;
+		color: #5E87B0;
+		font-weight: bold;
+		width: 100%;
+		font-size: 16px;
+	}
+	.mainclass {
+		margin-top: 2%;
+		border: #808080 3px solid;
+	}
+	
+
+  </style>	-->
+  
+  
+   <style>
+	table {
+		width: 98%;
+	}
+	table, th, td {
+		border: 2px solid #808080;
+		border-collapse: collapse;
+		padding: 5px;
+		margin: 1%;
+	}
+	.one {
+		padding-left: 2%;
+		color: #5E87B0;
+		font-weight: bold;
+		width: 100%;
+		font-size: 16px;
+	}
+	.mainclass {
+		margin-top: 2%;
+		border: #808080 3px solid;
+	}
+	.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1001;
+    opacity: 0.6;
+}
+.btn
+{    min-height: 27px;
+    font-size: 14px;
+    line-height: 23px;
+    background-color: rgb(235, 106, 12);
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: none;
+    width: 122px;
+}
+.des{color: #FFF;padding: 0px 13px;font-size: 10px;}
+ .white-popup {
+ 
+	position: fixed;
+	top: 39%;
+	left: 19%;
+	width: 64%;
+	padding: 7px;
+	background-color: #FFF;
+	z-index: 1002;
+	overflow: auto;
+	border-radius: 4px;
+	text-align:left;
+}
+
+    .bar .title {
+    background-color: #025793;
+}
+	.bar{
+		border-bottom: 1px solid rgba(221, 221, 221, 0);
+		background-color: rgba(255, 255, 255, 0);
+	}
+	.item {
+    border-color: rgba(255, 250, 250, 0.17);
+	}
+	/*Down-left pointing*/
+.triangle-down-left {
+    width: 100%;
+    height: 0;
+    padding-bottom: 83px;
+    overflow: hidden;
+	/*top: 117px;*/
+	position: absolute;
+}
+.triangle-down-left:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-right: 1083px solid transparent;
+    border-bottom: 133px solid #232323;
+}
+.button.button-positive {
+    border-color: #FFF;
+    background-color: #232323;
+    color: #FFF;
+	width: 107px;
+}
+.card {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    /*box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.4);*/
+    background-color: #FFF;
+}
+table, th, td {
+    border: 1px solid rgba(0, 0, 0, 0);
+	}
+	
+      .item-select select
+      {
+          position: relative;
+          direction: ltr;
+          width: 100%;
+          max-width: 100%;
+         font-size:12px;
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+          height: 35px;
+          margin-right: 15px;
+          padding-top: 1px;
+          padding-bottom: 1px;
+          padding-right: 0px;
+      }
+	
+      textarea, input[type="number"], input[type="text"]
+      {
+          width: 100%;
+          max-width: 100%;
+       		 font-size:12px;
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+          padding-left: 15px;
+      }
+
+      .input-label
+      {
+         
+        
+        white-space:normal;
+		  font-size:12px;
+      }
+
+      .item-select
+      {
+         
+          width: 100%;
+          border-width: 0px;
+		   font-size:12px;
+		   
+      }
+	  
+	  
+@import url("http://fonts.googleapis.com/css?family=Lato");
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+h1 {
+  font-weight: normal;
+  font-size: 40px;
+  font-weight: normal;
+ 
+  float: left;
+  margin: 20px 0 100px 10px;
+}
+h1 span {
+  font-size: 13px;
+  display: block;
+  padding-left: 4px;
+}
+
+.tabs {
+width: 100%;
+display: block;
+border-color: rgba(255, 255, 255, 0.16);
+position: relative;
+background-color: #0070BF;
+}
+.tabs li {
+  float: left;
+  display: block;
+}
+.tabs input[type="radio"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.tabs label {
+text-align:center;
+display: block;
+border-radius: 2px 2px 0px 0px;
+font-size: 12px;
+font-weight: normal;
+background-color: rgb(139, 201, 255)
+color: #fff;
+cursor: pointer;
+position: relative;
+
+transition: all 0.2s ease-in-out 0s;
+}
+.tabs label:hover {
+  background-color: #025793;
+  color:#000;
+}
+.tabs .tab-content {
+  z-index: 2;
+  display: none;
+  overflow: hidden;
+  width: 99.5%;
+  font-size: 17px;
+  line-height: 25px;
+  padding: 9px;
+  position: absolute;
+  left: 0;
+  
+  
+}
+.tabs .tab-content1 {
+  z-index: 2;
+  display: none;
+  overflow: hidden;
+  width: 99.5%;
+  font-size: 17px;
+  line-height: 25px;
+  padding: 9px;
+  position: absolute;
+  left: 0;
+ }
+.tabs [id^="tab"]:checked + label {
+  top: 0;
+  padding-top: 17px;
+
+  color: #fff;
+  background: #714982 none repeat scroll 0% 0%;
+}
+.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+  display: block;
+}
+.tabs [id^="tab"]:checked ~ [id^="tab-content1"] {
+  display: block;
+}
+p.link {
+  clear: both;
+  margin: 380px 0 0 15px;
+}
+p.link a {
+  
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #612e76;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+p.link a:hover {
+  background-color: #522764;
+}
+a.item {
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+
+      .item-select select
+      {
+          position: relative;
+          direction: ltr;
+          width: 100%;
+          max-width: 100%;
+         font-size:12px;
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+          height: 35px;
+          margin-right: 15px;
+          padding-top: 1px;
+          padding-bottom: 1px;
+          padding-right: 0px;
+      }
+	
+      textarea, input[type="number"], input[type="text"]
+      {
+          width: 100%;
+          max-width: 100%;
+       		 font-size:12px;
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+          padding-left: 15px;
+      }
+
+      .input-label
+      {
+         
+          
+        white-space:normal;
+		  font-size:12px;
+      }
+
+      .item-select
+      {
+         
+          width: 100%;
+          border-width: 0px;
+		   font-size:12px;
+		   
+      }
+	  .item-stacked-label .input-label, .item-stacked-label .icon {
+			display:block;
+	 }
+	 .input-label {
+	 color: #fff;
+font-size: 14px;
+    text-align: left;
+	width: 100%;
+}
+
+	
+.item.item-input.item-stacked-label {
+    border-bottom: 2px solid #DADADA;
+}	
+  </style> 
+    
+  </div>
+   
+  <ion-content style="">
+
+<!-- <div class="" style="padding-top: 45px;">-->
+ 
+ 
+ <form ng-repeat="x in ProductData">
+
+ 
+ <ul class="tabs" style="">
+    <li style="width: 100%;">
+        <input type="radio" name="tabs" id="tab1" checked />
+     
+        <div style="background-color: rgb(35, 11, 45);" id="tab-content1" class="tab-content">
+        <div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.17);">
+			<div class="col"><span style="text-align:left;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" >Address </span><span style="text-align:left;width: 100%; color: #fff;font-size: 16px;" class="input-label" >{{x.cCustomerAddress}} ,{{x.cStateName}} ,{{x.cCityName}},{{x.cAreaName}}</span>
+		   </div>
+		
+		   <div class="col"> <span style="text-align:right;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" >Office No</span><br /><span class="input-label" style="text-align:right;width: 100%;color: #fff;font-size: 16px;"> <a style="color: white;" href="callto:{{x.cCustomerContactNo}}">{{x.cCustomerContactNo}}</a></span></div>
+		</div>
+	
+		<div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.17);">
+			<div class="col"> <span style="text-align:left;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" >Company Name </span><span style="text-align:left;width: 100%; color: #fff;font-size: 16px;" class="input-label" >{{x.cCustomerCompany}} </span></div>
+			<div class="col"> <span style="text-align:right;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" >Industry Name </span> <span style="text-align:right;width: 100%;color: #fff;font-size: 16px;" class="input-label" > {{x.cIndustryName}} </span></div>
+ 
+		</div>
+	
+		<div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.17);">
+			<div class="col"> <span style="text-align:left;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" >Contact Person</span> <span style="text-align:left;width: 100%;color: #fff;font-size: 16px;" class="input-label" >{{x.cPrimaryPerson}}</span></div>
+			<div class="col"> <span style="text-align:right;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" >Office No</span><span style="text-align:right;width: 100%;color: #fff;font-size: 16px;" class="input-label" >{{x.cAuthorityPersonContactNo}} </span></div>
+ 
+		</div>
+	
+		<div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.17);">
+			<div class="col"><span style="text-align:left;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" >Designation </span><span style="text-align:left;width: 100%; color: #fff;font-size: 16px;" class="input-label" >{{x.cAuthorityPerson}}</span></div>
+			<div class="col"><span style="text-align:right;color: rgb(177, 177, 177);font-size: 13px;" class="input-label">Contact No</span> <span style="text-align:right;width: 100%;color: #fff;font-size: 16px;" class="input-label" >{{x.cPrimaryPersonContactNo}} </span></div>
+ 
+		</div>
+	
+		<div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.17);">
+			<div class="col"><span style="text-align:left;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" >Client Source</span> <span style="text-align:left;width: 100%;color: #fff;font-size: 16px;" class="input-label">{{x.cSourcetype}}</span></div>
+			<div class="col"><span style="text-align:right;color: rgb(177, 177, 177);font-size: 13px;" class="input-label" style="">Client Type</span><span style="text-align:right;width: 100%; color: #fff;font-size: 16px;" class="input-label">{{x.cClientType}} </span></div>
+ 
+		</div>
+		<div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.17);">
+			<div class="col"><span style="text-align:left;color: #848484;font-size: 15px;font-family: halvetica nuea;">Industry type</span></div>
+			<div style="text-align: right;" class="col"><span style="text-align:right;width: 100%;color: #000;font-family: halvetica nuea;font-size: 16px;">{{x.cIndustryName}} </span></div>
+ 
+		</div>
+	
+	
+	      </form>
+		<form ng-repeat="y in CommunicationMedia">
+<div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.17);">
+			<div class="col col-50"><span style="text-align:left;color: #515151;" class="input-label" style="">{{y.cChatMediaName}}</span></div>
+			<div class="col col-50"><span style="text-align:right;" class="input-label">{{y.cCommunicationMediaId}} </span></div>
+ 
+		</div>
+</form>
+        </div>
+    </li>
+  
+ 
+</ul>
+    
+
+
+  
+  
+  </ion-content>
+</ion-view>

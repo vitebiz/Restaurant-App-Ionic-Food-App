@@ -1,0 +1,203 @@
+<ion-view title="Book Table" hide-back-button="true">
+
+<ion-nav-back-button class="button-clear" style="color: #FFFFFF;">
+        <i class="icon ion-ios7-arrow-back"></i>
+</ion-nav-back-button>
+    <ion-nav-buttons side="right">
+    <a href="#/app/AddAppoinment"><img src="img/plus.png"  style="height: 22px;width: 22px;margin-top: 10px;margin-left: 5px;"/></a>
+  </ion-nav-buttons> 
+  <!--<ion-nav-buttons side="secondary">
+    <button class="button button-icon icon ion-navicon" ng-click="showFilterBar()">
+    </button>
+  </ion-nav-buttons>-->
+ 
+  <style>
+.invoice-bg{
+	background-color:#03adc1;
+}
+.order-p p{
+	margin:0px;
+	color:white;
+}
+.sent-link{
+	text-align:right;
+	color:#fff;
+}
+.invoice-date p{
+	margin:0px;
+	font-size: 16px;
+}
+.invoice-date{
+	padding-top: 10px;
+	
+}
+.invoice-item{
+	background-color:#eeeeee;
+	box-shadow: 1px 1px 4px -1px #a5a5a5;
+}
+.success {
+    background-color: rgb(13, 152, 13);
+    border: medium none;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.pending {
+    background-color:#bf2b2b;
+    border: medium none;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.order-list{
+	border-bottom:1px solid grey;
+}
+.date{
+	background-color: rgb(248, 248, 248);
+    border-left: 5px solid #e2e2e2;
+}
+.date h5{
+	text-align:left;
+	color:#8f8f94;
+	padding-left: 10px;
+}
+.appointment{
+	border-left: 5px solid rgb(80, 210, 194);
+	margin: 0 !important;
+	padding: 0 12px;
+}
+.appointment h4{
+	text-align:left;
+	color:#000;
+	padding-left: 10px;
+	font-size: 15px;
+}
+.appointment span{
+	padding-left: 10px;
+	color: #8f8f94;
+}
+.appointment i{
+	padding-left: 10px;
+}
+
+
+
+.appointment2{
+	border-left: 5px solid #8b87ff;
+	margin: 0 !important;
+	padding: 0 12px;
+}
+.appointment2 h4{
+	text-align:left;
+	color:#000;
+	padding-left: 10px;
+	font-size: 15px;
+}
+.appointment2 span{
+	padding-left: 10px;
+	color: #8f8f94;
+}
+.appointment2 i{
+	padding-left: 10px;
+}
+
+
+
+.appointment3{
+	border-left: 5px solid #e4e4e4;
+	margin: 0 !important;
+	padding: 0 12px;
+}
+.appointment3 h4{
+	text-align:left;
+	color:#000;
+	padding-left: 10px;
+	font-size: 15px;
+}
+.appointment3 span{
+	padding-left: 10px;
+	color: #8f8f94;
+}
+.appointment3 i{
+	padding-left: 10px;
+}
+
+
+
+.appointment4{
+	border-left: 5px solid #fdbb74;
+	margin: 0 !important;
+	padding: 0 12px;
+}
+.appointment4 h4{
+	text-align:left;
+	color:#000;
+	padding-left: 10px;
+	font-size: 15px;
+}
+.appointment4 span{
+	padding-left: 10px;
+	color: #8f8f94;
+}
+.appointment4 i{
+	padding-left: 10px;
+}
+.ion-location::before {
+    content: "\f1ff";
+    font-size: 20px;
+    color: #8f8f94;
+}
+.ion-clock::before {
+    content: "\f26e";
+    font-size: 20px;
+    color: #8f8f94;
+}
+.client img{
+	float: right;
+	border-radius: 100%;
+	width: 35px;
+	height: 35px;
+	margin-top: 15px;
+}
+.col{
+	padding: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+  </style>
+  
+    <ion-content style="background-color:#fff" ng-app="Book" ng-controller="ViewBookTable">
+	
+	 <div ng-repeat="x in Appoinment" ng-if="x.Success!=0">
+	 
+	 <div class="row appointment">
+			<div style="border-bottom: 1px solid rgb(210, 210, 210);" class="col col-80">
+				<h4>{{x.cAppointmentDesc}}</h4>
+				<div class="col">
+				<i class="ion-clock"><span>{{x.dtStartDate | date:'mediumDate' }}</span></i>
+				<i class="ion-location"><span>{{x.cLocation}}</span></i>
+				</div>
+				
+				
+				
+			</div>
+			<div style="border-bottom: 1px solid rgb(210, 210, 210);" class="col col-15 client">
+				<!-- <img src="img/client.png"></img> -->{{x.cAppointmentTitle}}
+			</div>
+		
+		</div>
+	
+	</div> 
+		
+		<div class="" ng-if="Appoinment==undefined" style="text-align:center;width: 100%;">
+<p style="width:100%;margin-top:30px;"><a href="#/app/AddAppoinment"><img src="img/addappoinment.jpg"></a></p>
+	<h2>No Appoinment</h2>
+</div>
+	 
+	
+	
+	
+	
+	
+    </ion-content>
+     <footertabs></footertabs>
+</ion-view>

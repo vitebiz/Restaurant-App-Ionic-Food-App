@@ -1,0 +1,339 @@
+
+<ion-view title="Book Table">
+  <ion-nav-buttons side="left">
+    
+  </ion-nav-buttons>
+
+<style>
+p{
+	margin:0px;
+}
+.item-checkbox {
+    padding-left: 30px;
+	background-color: rgba(255, 0, 0, 0); 
+}
+.checkbox-icon {
+    float: right;
+    position: relative;
+    left: 10px;
+    top: 15px;
+}
+.save-btn {
+    width: 100%;
+	border-color: rgb(113, 73, 130);
+	background-color: rgb(113, 73, 130);
+	color: #fff;
+	border:none;
+	padding:10px;
+	font-size:14px;
+}
+
+ input[type="search"]
+      {
+          width: 200px;
+         
+          height: 15px;
+      }
+
+/*ion-nav-back-button.button-clear.button.back-button {
+    display: none;
+}
+   span{
+	font-size: 11px; color: #b2b2b2;  
+	}
+  .title.ng-binding {
+    line-height: 15px;
+    padding-top: 8px;
+}*/
+.tabs-icon{
+	display: flex !important;
+}
+.btn{
+	position: absolute;
+	bottom:49px;
+	width: 100%;
+	
+}
+.medicine-order{
+	background-color: rgb(255, 255, 255);
+	color: black;
+	font-size: 15px;
+	margin-top: 10px;
+}
+.medicineorder-p{
+	padding: 4px;
+	padding-left: 10px;
+}
+.order-p{
+	background-color: white;
+	padding: 4px;
+	font-size: 15px;
+	text-align: center;
+	margin-top: 10px;
+}
+.btn2{
+	background-color: #ff2d50;
+	padding: 3px;
+	font-size: 14px;
+	border: none;
+	border-radius: 6px;
+	color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: right;
+	width: 100%;
+	height: 34px;
+}
+
+.placeholder-icon {
+    color: #FF2D55;
+    font-size: 21px;
+}
+
+.datepicker-button.ng-binding {
+    padding: 0px;
+}
+.datepicker-button {
+	border: medium none;
+	/*background-color: rgb(218, 218, 218);*/
+	width: 90%;
+	text-align: left;
+	color: black;
+	font-size: 15px;
+}
+.ionic_datepicker .selected_date_full {
+    color: #ff2d55;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 5px;
+}
+.button.button-assertive {
+    border-color: #ff2d55;
+    background-color: #ff2d55;
+    color: #fff;
+	    border-radius: 10px;
+   
+}
+
+.ionic_datepicker .date_selected {
+    background-color: #ff2d55;
+}
+.ionic_datepicker .color_blue {
+    color: #ff2d55;
+}
+.ionic_datepicker .date_col:hover {
+    background-color: rgba(255, 45, 85, 0.5);
+    cursor: pointer;
+}
+.popup-head {
+	display: none;
+}
+.ionic_datepicker .select_section select {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 10px;
+    direction: ltr;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 23px;
+}
+.popup-body {
+    overflow: hidden !important;
+    text-align: center;
+}
+.button {
+    border-color: #ff2d55;
+    background-color: #ff2d55;
+    color: white;
+}
+.button:hover {
+	color: white;
+}
+.button.button-positive, .button.button-positive.activated, .button.activated {
+    border-color: #ff2d55;
+    background-color: #ff2d55;
+    color: white;
+}
+ .white-popup {
+ 
+position: fixed;
+top: 10%;
+left: 0%;
+width: 100%;
+padding: 7px;
+/*background-color: #FFF;*/
+z-index: 1002;
+overflow: auto;
+border-radius: 4px;
+text-align: center;
+/*padding-left: 19px;*/
+}
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 410%;
+    background-color: #000;
+    z-index: 1001;
+    opacity: 0.6;
+}
+.cssSlideUp {
+    transition: .5s linear all;
+    height: 80px;
+    overflow: hidden;
+}
+.cssSlideUp.ng-hide {
+    height:0;
+}
+.item-radio .radio-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    visibility: hidden;
+    padding: 14px;
+    height: 100%;
+    font-size: 15px;
+}
+.item-radio .item-content {
+    padding-right: 0;
+}
+.item-complex .item-content, .item-radio .item-content {
+    position: relative;
+    z-index: 2;
+    border: none;
+	font-size: 12px;
+}
+.checkbox input::before, .checkbox .checkbox-icon::before {
+    border-color: #714982;
+}
+.checkbox input:checked::before, .checkbox input:checked + .checkbox-icon::before {
+	background: #714982;
+}
+.ion-checkmark:before {
+    content: "\f122";
+    font-size: 25px;
+    margin-top: -6px;
+    color: #714982;
+}
+
+/* override radio button display with custom icon for both states */
+div > .item-radio input ~ .radio-icon {
+    visibility: visible !important;
+	padding-right: 0px;
+	background-color: #FFF; 
+}
+p > .item-radio input ~ .radio-icon {
+    visibility: visible !important;
+	padding-right: 10px;
+}
+div > .item-radio > .radio-icon:before {
+    content: "\f3a6" !important; /*deselected - Ionic class = ion-android-radio-button-off */
+}
+p > .item-radio > .radio-icon:before {
+    content: "\f3a6" !important; /*deselected - Ionic class = ion-android-radio-button-off */
+}
+div > .item-radio > input[type=radio]:checked ~ .radio-icon:before {
+    content: "\f3a7" !important; /*selected Ionic class = ion-android-radio-button-on */
+}
+p > .item-radio > input[type=radio]:checked ~ .radio-icon:before {
+    content: "\f3a7" !important; /*selected Ionic class = ion-android-radio-button-on */
+}
+</style>
+
+  
+  <ion-content style="background-color: #fff;">
+		
+		<div class="row">
+			
+			<div class="col" style="background-color: #ccc;">
+				<p style="border: 1px solid #FFF;"><ion-radio ng-click="today('today')" ng-model="TodayDate.date" name="day"  ng-value="'{{todate}}'" >Today</ion-radio></p>
+			</div>
+			<div class="col" style="background-color: #ccc;">
+				<p style="border: 1px solid #FFF;"><ion-radio ng-model="TodayDate.date" ng-click="today('tomorrow')" name="day"  ng-value="'{{tomorrowDate}}'">Tomorrow</ion-radio></p>
+			</div>
+			
+	    </div>
+				
+		<div style="margin-top: 10px;font-size: 15px;text-align: center;" ng-show="dateSelected"><input type="hidden" ng-model="OnDayDate" value="{{OnDayDate}}" /></div>
+			
+		</div>
+		
+		<div class="row">
+			<div class="col col-10">
+				<img style="width: 20px;" src="img/clock.png"/>
+			</div>
+			<div class="col">
+				<p style="width: 100px; border-bottom: 1px solid rgb(177, 177, 177);"><input  style="padding-left: 10px;border: 1px solid #fff; 
+				" type="time"  placeholder="HH:mm:ss"  ng-model="AddAppoinment.Time" min="01:00:00" max="12:00:00" required/></p>
+			</div>
+			<div class="col" ng-model="datefilter">	
+			     <ionic-datepicker input-obj="datepickerObject" style="min-height: 35px;display:inline-block;" >
+				    <img src="img/calendar2.png" style="width:20px;" ng-hide="m" class="datepicker-button" ng-model="datefilter" ></img>
+			    </ionic-datepicker>	 
+				<p style="display:inline-block;">Date:{{OnDayDate}}</p> 
+			      			
+	        </div>
+		</div>
+		
+		<div style="margin: 10px 0px;" class="row">
+			<div class="col col-10">
+				<img style="width: 20px;padding-top: 7px;" src="img/alarm.png"/>
+			</div>
+			<div class="col">
+				<p><input  style="padding-left: 10px;border: 1px solid #fff; " type="number" placeholder="No. Of Person"  ng-model="AddAppoinment.totalPerson" /></p>
+			</div>
+			<!-- <div class="col">
+				<p><input  style="padding-left: 10px;border: 1px solid #fff; " type="number" placeholder="Min" ng-model="AddAppoinment.Min"/></p>
+			</div>
+			<div class="col">
+				<p><input  style="padding-left: 10px;border: 1px solid #fff; " type="number" placeholder="Hour" ng-model="AddAppoinment.Hour"/></p>
+			</div> -->
+		</div>
+		
+		<div class="list list-inset">
+		  <label style="padding: 0px;" class="item item-input">
+			<i style="color: rgb(62, 62, 62); font-size: 30px;padding-top: 7px;" class="icon ion-location placeholder-icon"></i>
+			<input style="border-bottom: 1px solid grey; margin-right: 10px;" type="search" placeholder="Search Location" ng-model="query.$">
+		  </label>
+		</div>
+		
+		<div class="row" ng-repeat="x in StoreName | filter:query">
+			<div style="max-width: 12%;" class="col col-20">
+			 <!--<ion-checkbox ng-model="x.checked" ng-checked="x.checked" ></ion-checkbox>   ng-change="GetLocation(x.intStoreId,x.strStoreLocation)"-->
+			 
+			 <ion-radio ng-model="x.checked" name="location"  ng-value=""  ng-change="GetLocation(x.intStoreId,x.strStoreLocation)"></ion-radio>
+	
+			</div>
+			<div style="margin-left: 5px;" class="col col-10">
+				<i style="font-size: 20px; position: relative; top: 9px;" class="ion-location"></i>
+			</div>
+			<div class="col">
+				<p>{{x.strStoreLocation}}<br /><span style="font-size:12px;color:grey;">{{x.strStoreName}}</span></p>
+			</div>
+		</div>
+		
+		
+		<div class="row">
+			<div style="width: 100%; border-bottom: 1px solid rgb(204, 201, 201);" class="">
+			  <label class="">
+				<input type="text" placeholder="Notes..."  ng-model="AddAppoinment.Notes">
+			  </label>
+			</div>
+		</div>
+		
+		<button class="save-btn" ng-click="AddAppoinment()">
+		  Book table
+		</button>
+		
+		<br />
+		<br />
+		<br />
+		<br />
+		
+  </ion-content>
+  <footertabs></footertabs>
+</ion-view>

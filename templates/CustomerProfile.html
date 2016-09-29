@@ -1,0 +1,109 @@
+<ion-view title="Profile" >
+  
+    <ion-nav-back-button class="button-clear" style="color: #FFFFFF;">
+        <i class="icon ion-ios7-arrow-back"></i>
+      </ion-nav-back-button>
+	  
+     <ion-nav-buttons nav-clear side="left">
+       
+      </ion-nav-buttons>
+  
+  <style>
+
+    /*img {
+        margin-bottom: -9px;
+    }*/
+    /*.item .item-content.activated{
+        background-color: #5E87B0;
+	    color: #FFF;
+    }*/
+	
+  </style>
+<ion-content style="background-color:white;">
+<!-- <div class="row">
+  <div class="col"> 
+  
+	<ion-item>
+     
+  </li> -->
+<form>
+    <div class="list" style="border: 2px solid rgb(204, 204, 204); width: 97%; margin-left: 1.5%;">
+        
+		
+		
+			<div class="row">	
+				<div class="col">
+					<p style="font-size: 14px;">Name  :</p>
+				</div>
+				<div class="col" style="margin-left: -50px;">
+					<p style="font-size: 14px;">{{cCustomerFirstName}}</p>
+				</div>
+			</div>
+			<!--<div class="row">	
+				<div class="col">
+					<p style="font-size: 14px;">Last Name  :</p>
+				</div>
+				<div class="col" style="margin-left: -50px;">
+					<p style="font-size: 14px;">{{cCustomerLastName}}</p>
+				</div>
+			</div>-->
+			<!-- <div class="row">	
+				<div class="col">
+					<p style="font-size: 14px;">Birth Date  :</p>
+				</div>
+				<div class="col" style="margin-left: -50px;">
+					<p style="font-size: 14px;">{{dtCustomerBirthdate | date :'MM/dd/yyyy'}}</p>
+				</div>
+			</div> -->
+			
+			<div class="row">	
+				<div class="col">
+					<p style="font-size: 14px;">Contact No  :</p>
+				</div>
+				<div class="col" style="margin-left: -50px;">
+					<p style="font-size: 14px;">{{cCustomerContactNo}}</p>
+				</div>
+			</div>
+						
+			<div class="row">	
+				<div class="col">
+					<p style="font-size: 14px;">Email  :</p>
+				</div>
+				<div class="col" style="margin-left: -50px;">
+					<p style="font-size: 14px;">{{cCustomerEmailId}}</p>
+				</div>
+			</div>
+			<!-- <div class="row">	
+				<div class="col">
+					<p style="font-size: 14px;">Password:</p>
+				</div>
+				<div class="col" style="margin-left: -50px;">
+					<p style="font-size: 14px;">{{cPassword}}</p>
+				</div>
+			</div> -->
+		
+        
+       <!-- <label class="item item-input item-stacked-label" style="border-width: 0px;">
+          <span class="input-label" style="margin-bottom: 2%;">EmailId :</span>
+          <input type="text" ng-model="CustProfile.cEmailId">
+        </label>-->
+		<a href="#/app/changePassword">
+		Change Password
+	</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<a href="#/app/logout">
+		Logout
+	</a>
+		
+	</div>
+
+<div class="row" style="margin-top: 1%;">
+  	    <button  style="width: 100%;border-color: rgb(113, 73, 130);background-color: rgb(113, 73, 130);color: #fff;" class="button button-positive" value="{{x.nLoginId}}" ng-click="updateProfile()">Edit</button>
+  	</div>
+</form>
+
+  <!--<div class="col" ><button class="button icon-left ion-plus-circled button-positive" style="width:100%;">Add New</button></div>-->
+    </ion-content>
+     <footertabs></footertabs>
+</ion-view>

@@ -1,0 +1,77 @@
+  
+  <style>
+  .scroll-content {
+    background: url(img/login.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+  
+  .item .item-content.activated{
+	background-color: #5E87B0;
+	color: #000;
+	} 
+	.form{
+  float:left;
+  height:86%;
+  width:100%;
+  box-sizing:border-box;
+  padding: 20px;
+}
+
+.textbox{
+  height:50px;
+  width:100%;
+  border-radius:3px;
+  box-sizing:border-box;
+  padding:10px;
+}
+
+.textbox:focus{
+  outline:none;
+   color: #000;
+}
+  </style>
+  <ion-content>
+	  
+    <div class="" style="width:100%;margin: 0 auto;text-align: center;margin-top: 50px;">
+		  
+				<center><img style="width:210px;" src="{{imgpath}}{{Logo}}" /></center>
+		  
+	</div>
+<div class="">
+
+<div class="list list-inset">
+  <label class="item item-input">
+    <i style="font-size:20px;" class="ion-email"></i>
+    <input style="padding-left: 5px;padding-bottom: 4px;" ng-model="login.email" type="email" placeholder="Email">
+  </label>
+</div>
+<div class="list list-inset">
+  <label class="item item-input">
+    <i style="font-size:20px;" class="ion-locked"></i>
+    <input style="padding-left: 5px;padding-bottom: 4px;" ng-model="login.pass" type="password" placeholder="Password">
+  </label>
+</div>
+	
+	
+</div>
+
+<div style="text-align: center;">
+<button ng-click="loginUser()" style="margin-top: 20px;width:94%;background-color:#714982;border-color:#714982;color: #fff;" class="button button-positive">
+  Login
+</button>
+<!-- <button style="width:94%;background-color:#3d569c;border-color: #3d569c;margin-top: 20px;color: #fff;" class="button button-positive">
+  Facebook Login 
+</button> -->
+
+<div class="row" style="width:100%;margin: 0 auto;  margin-left: 29px; margin-top:0%;">
+<a href="#/app/ForgotPassword" style="text-decoration:none;"><p style="font-size: 11px;color: rgb(255, 235, 220); ">Forgot Password</p></a>
+</div>
+</div>
+<p style="color:white;text-align:center;font-size:13px;">Don't have a account?<a style="text-decoration:none;"href="#/app/register"><span style="color: rgb(134, 1, 161);"> Sign up</span></a>
+
+
+  </ion-content>
+</ion-view>

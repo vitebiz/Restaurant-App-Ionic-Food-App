@@ -1,0 +1,181 @@
+
+<ion-view title="Locations">
+  <ion-nav-buttons side="left">
+   
+  </ion-nav-buttons>
+
+<style>
+p{
+	margin:0px;
+}
+.item-checkbox {
+    padding-left: 30px;
+	background-color: rgba(255, 0, 0, 0); 
+}
+.checkbox-icon {
+    float: right;
+    position: relative;
+    left: 10px;
+    top: 15px;
+}
+.save-btn {
+    background-color: rgb(54, 187, 134);
+    color: rgb(255, 255, 255);
+    border: medium none;
+    padding: 10px;
+	width:100%;
+}
+
+
+
+ion-nav-back-button.button-clear.button.back-button {
+    display: none;
+}
+  /* span{
+	font-size: 11px; color: #b2b2b2;  
+	}
+  .title.ng-binding {
+    line-height: 15px;
+    padding-top: 8px;
+}*/
+.tabs-icon{
+	display: flex !important;
+}
+.btn{
+	position: absolute;
+	bottom:49px;
+	width: 100%;
+	
+}
+.medicine-order{
+	background-color: rgb(255, 255, 255);
+	color: black;
+	font-size: 15px;
+	margin-top: 10px;
+}
+.medicineorder-p{
+	padding: 4px;
+	padding-left: 10px;
+}
+.order-p{
+	background-color: white;
+	padding: 4px;
+	font-size: 15px;
+	text-align: center;
+	margin-top: 10px;
+}
+.btn2{
+	background-color: #ff2d50;
+	padding: 3px;
+	font-size: 14px;
+	border: none;
+	border-radius: 6px;
+	color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: right;
+	width: 100%;
+	height: 34px;
+}
+
+.placeholder-icon {
+    color: #FF2D55;
+    font-size: 21px;
+}
+
+
+.button.button-assertive {
+    border-color: #ff2d55;
+    background-color: #ff2d55;
+    color: #fff;
+	    border-radius: 10px;
+   
+}
+
+.popup-head {
+	display: none;
+}
+
+.popup-body {
+    overflow: hidden !important;
+    text-align: center;
+}
+.button {
+    border-color: #ff2d55;
+    background-color: #ff2d55;
+    color: white;
+}
+.button:hover {
+	color: white;
+}
+.button.button-positive, .button.button-positive.activated, .button.activated {
+    border-color: #ff2d55;
+    background-color: #ff2d55;
+    color: white;
+}
+ .white-popup {
+ 
+position: fixed;
+top: 10%;
+left: 0%;
+width: 100%;
+padding: 7px;
+/*background-color: #FFF;*/
+z-index: 1002;
+overflow: auto;
+border-radius: 4px;
+text-align: center;
+/*padding-left: 19px;*/
+}
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 410%;
+    background-color: #000;
+    z-index: 1001;
+    opacity: 0.6;
+}
+.cssSlideUp {
+    transition: .5s linear all;
+    height: 80px;
+    overflow: hidden;
+}
+.cssSlideUp.ng-hide {
+    height:0;
+}
+.checkbox input::before, .checkbox .checkbox-icon::before {
+    border-color: #714982;
+}
+.checkbox input:checked::before, .checkbox input:checked + .checkbox-icon::before {
+	background: #714982;
+}
+</style>
+
+  
+  <ion-content style="background-color: #fff;">
+				
+		<div class="list list-inset">
+		  <label style="padding: 0px;" class="item item-input">
+			<i style="color: rgb(62, 62, 62); font-size: 30px;" class="icon ion-location placeholder-icon"></i>
+			<input style="border-bottom: 1px solid grey; margin-right: 10px;" type="text" placeholder="Search">
+		  </label>
+		</div>
+		<div class="row" ng-repeat="x in StoreName">
+			<div style="max-width: 12%;" class="col col-20">
+	
+			 <ion-checkbox ng-model="x.checked" ng-checked="x.checked" ng-change="GetLocation(x.intStoreId,x.strStoreLocation)"></ion-checkbox>
+			</div>
+			<div style="margin-left: 5px;" class="col col-10">
+				<i style="font-size: 20px; position: relative; top: 9px;" class="ion-location"></i>
+			</div>
+			<div class="col">
+				<p>{{x.strStoreLocation}}<br /><span style="font-size:12px;color:grey;">{{x.strStoreName}}</span></p>
+			</div>
+		</div>
+		<br />
+  </ion-content>
+  <footertabs></footertabs>
+</ion-view>

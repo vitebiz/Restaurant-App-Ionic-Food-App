@@ -1,0 +1,85 @@
+<ion-view hide-back-button="true" title="{{homeHeader}}" >
+
+ <ion-nav-buttons side="left">
+    
+ </ion-nav-buttons>
+  
+ <ion-nav-buttons side="right">   
+	<!--<li style="display: inline-block;font-size: 25px;color: white;padding-top:9px;" class="ion-ios-search-strong" data-pack="ios" data-tags="find, seek, look, magnifying glass"></li>-->
+	<button ng-click="goToCart()" class="button button-icon1 button-icon icon ion-ios-cart" style="padding-top: 6px;color: #FFFFFF;">{{count}}</button>
+ </ion-nav-buttons>
+  
+<style>
+    .content{
+	    background-image:url(img/bg.png);
+	    background-size:100% 100%;
+    }
+</style>
+
+<ion-content class="content" >
+
+ <center><img style="width: 230px; padding:30px;" src="img/logo.png"/></center>
+    <div style="background-color: rgba(153, 51, 0, 0.72); width: 80%; margin: 0px auto; border-radius: 10px;" class="bg">
+	   
+	    <div style="border-bottom: 1px solid white; padding-bottom: 0px;" class="row">
+		    <div ng-repeat="Slider in SliderImage" class="col">
+			    <a style="text-decoration:none;" href="#/app/AddAppoinment">	
+			    <img style="width: 50px;" src="img/book.png"><span style="position: relative; bottom: 16px; left: 40px; font-size: 18px; color: white;">Book Table</span></img>
+			    </a>
+		    </div>
+	    </div>
+		
+		 <div style="border-bottom: 1px solid white; padding-bottom: 0px;" class="row">
+		    <div ng-repeat="Slider in SliderImage" class="col">
+			    <a style="text-decoration:none;" href="#/app/ViewBookTable">	
+			    <img style="width: 50px;" src="img/book.png"><span style="position: relative; bottom: 16px; left: 40px; font-size: 18px; color: white;">View Book Table</span></img>
+			    </a>
+		    </div>
+	    </div>
+
+	    <!--<div style="border-bottom: 1px solid white; padding-bottom: 0px; padding-top: 5px;" class="row">
+		    <div ng-repeat="Slider in SliderImage" class="col">
+			    <a style="text-decoration:none;" href="#/app/home">	
+			    <img style="width:40px;" src="img/order.png"><span style="position: relative; bottom: 16px; left:50px; font-size: 18px; color: white;">Order Food</span></img>
+			    </a>
+			
+		    </div>
+	    </div>
+
+	    <div style="border-bottom: 1px solid white; padding-bottom: 0px; padding-top: 5px;" class="row">
+		    <div ng-repeat="Slider in SliderImage" class="col">
+			    <a style="text-decoration:none;" href="#/app/getlocation">	
+			    <img style="width: 50px;" src="img/location.png"><span style="position: relative; bottom: 16px; left: 40px; font-size: 18px; color: white;">Get Location</span></img>
+			    </a>
+		    </div>
+	    </div>
+
+	    <div style=" padding-bottom: 0px; padding-top: 5px;" class="row">
+		    <div ng-repeat="Slider in SliderImage" class="col">
+			    <a style="text-decoration:none;" href="#/app/PromocodeDisplay">	
+			    <img style="width: 50px;" src="img/offer.png"><span style="position: relative; bottom: 16px; left: 40px; font-size: 18px; color: white;">Offers </span></img>
+			    </a>	
+		    </div>
+	    </div>-->
+</div>
+<div style="height:50px;"></div>
+		<!--<div ng-repeat="Slider in SliderImage" class="listwelcome" style="background-image: url({{imgpath}}{{Slider.strSliderImage}});background-size: 100% 100%;">		  
+		    <a class="item" href="#/app/AddAppoinment" style=" height:100%;">	
+			    <h2 class="text" style="color: rgb(255, 255, 255);  text-align: center; padding: 50px;">Book Table</h2>
+		    </a>
+	    </div>
+	    <div ng-repeat="Slider in SliderImage" class="listwelcome" style="background-image: url({{imgpath}}{{Slider.strSliderImage}});background-size: 100% 100%;">		  
+		    <a class="item" href="#/app/home" style=" height:100%;">	
+			    <h2 class="text"style="color: rgb(255, 255, 255); text-align: center;padding: 50px;">Order Food</h2>
+		    </a>
+	    </div>
+	    <div ng-repeat="Slider in SliderImage" class="listwelcome" style="background-image: url({{imgpath}}{{Slider.strSliderImage}});background-size: 100% 100%;">		  
+		    <a class="item" href="#/app/getlocation" style=" height:100%;">	
+			    <h2 class="text"style="color: rgb(255, 255, 255);  text-align: center; padding: 50px;">Get Location</h2>
+		    </a>
+	    </div>
+    </div> -->
+  
+</ion-content>
+    <footertabs></footertabs>
+</ion-view>
